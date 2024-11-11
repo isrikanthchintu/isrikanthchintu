@@ -1,0 +1,53 @@
+# Environment files
+myenv/
+*.env
+*.flaskenv
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Byte-compiled / optimized / compiled Python files
+*.pyc
+*.pyd
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+myenv/
+
+# Flask cache
+instance/
+*.db
+*.sqlite3
+
+# Logs
+*.log
+
+# Ignore Docker-related files
+docker-compose.yml
+*.env.docker
+Dockerfile
+
+# Ignore migrations if generated
+migrations/
+
+# Ignore zip files if not needed
+*.zip
+
+# Requirements
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Ignore IDE specific files (e.g., VS Code, PyCharm)
+.vscode/
+.idea/
+
+# Git itself
+.git/
+
+# Other generated or sensitive files
+*.pem
