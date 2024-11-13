@@ -67,3 +67,18 @@ class PlainCoursesSchema(Schema):
 
 class EnrollmentSchema(Schema):
     course_id = fields.Int(required=True, description="ID of the course to enroll in")
+
+
+
+import base64
+
+class FileSchema(Schema):
+    id = fields.Int()
+    filename = fields.Str()
+
+    # Optionally, base64 encode pdf_file for small files (not recommended for large files)
+    pdf_file = fields.Method("get_pdf_base64")
+
+    def get_pdf_base64(self, obj):
+        # This assumes obj is a FileModel instance
+        return base64.b64encode(obj.pdf_file).decode('utf-8') if obj.pdf_file else None

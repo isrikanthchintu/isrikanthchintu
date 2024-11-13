@@ -7,3 +7,4 @@ from models.user import UserModel
 from models.student import StudentModel
 from models.course import CourseModel
 from models.enrollment import EnrollmentModel
+from models.file import FileModel

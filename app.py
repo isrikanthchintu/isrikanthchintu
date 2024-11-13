@@ -9,6 +9,8 @@ from flask_jwt_extended import JWTManager
 from db import db
 from blocklist import BLOCKLIST
 import models
+from flask_cors import CORS
+
 
 # Import Blueprints for different resources
 from resources.item import blp as ItemBlueprint
@@ -18,6 +20,7 @@ from resources.students import blp as StudentBluePrint
 from resources.course import blp as CourseBlueprint
 from resources.enrollment import blp as EnrollmentBlueprint
 from resources.user import blp as UserBlueprint
+from resources.file import blp as FileBlueprint
 
 def create_app(db_url=None):
     app = Flask(__name__)
@@ -32,6 +35,8 @@ def create_app(db_url=None):
     app.config["OPENAPI_SWAGGER_UI_URL"] = "https://cdn.jsdelivr.net/npm/swagger-ui-dist/"
     app.config["SQLALCHEMY_DATABASE_URI"] = db_url or os.getenv("DATABASE_URL", "sqlite:///C:/Users/CS-DESKTOP-03/Downloads/section-start-code/start/data.db")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    CORS(app, origins=["http://localhost:3001"])
+
 
     # Initialize the database with Flask app
     db.init_app(app)
@@ -117,6 +122,8 @@ def create_app(db_url=None):
     api.register_blueprint(CourseBlueprint)
     app.register_blueprint(EnrollmentBlueprint)
     api.register_blueprint(UserBlueprint)
+    api.register_blueprint(FileBlueprint)
+    
     
     # Basic route to test if app is running
     @app.route('/')
