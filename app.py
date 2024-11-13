@@ -4,6 +4,8 @@ import secrets
 from flask import Flask, jsonify
 from flask_smorest import Api
 from flask_migrate import Migrate
+from dotenv import load_dotenv
+
 from flask_jwt_extended import JWTManager
 
 from db import db
@@ -24,6 +26,7 @@ from resources.file import blp as FileBlueprint
 
 def create_app(db_url=None):
     app = Flask(__name__)
+    load_dotenv()
 
     # Basic Flask configuration for app behavior and OpenAPI documentation
     app.config["PROPAGATE_EXCEPTIONS"] = True

@@ -18,6 +18,7 @@ __pycache__/
 venv/
 env/
 myenv/
+./env
 
 # Flask cache
 instance/

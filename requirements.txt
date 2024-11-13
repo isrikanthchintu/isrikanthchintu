@@ -8,3 +8,5 @@ passlib
 flask-migrate
 Flask-Cors==3.0.10
 gunicorn
+psycopg2
+flask_jwt_extended
