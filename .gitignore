@@ -30,7 +30,6 @@ instance/
 # Ignore Docker-related files
 docker-compose.yml
 *.env.docker
-Dockerfile
 
 # Ignore migrations if generated
 migrations/
